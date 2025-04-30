@@ -1,0 +1,73 @@
+/* style.css */
+
+/* 1. Import the Cyberpunk-y techno font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+/* 2. Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* vertically center content */
+  align-items: center;        /* horizontally center content */
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #ffeb3b 0%, #fff600 100%);
+  color: #000;
+  overflow: hidden;
+}
+
+/* 3. Main headline style */
+h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  padding: 1rem 2rem;
+  margin: auto;               /* ensure the h1 is centered */
+  text-align: center;         /* center text inside the h1 */
+}
+
+/* 4. Footer */
+footer {
+  margin-top: auto;           /* push footer to the bottom */
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
+  width: 100%;
+}
+footer address {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+footer a {
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  padding: 0.1rem 0.3rem;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+footer a::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+footer a:hover {
+  color: #fff;
+  background: #000;
+}
+footer a:hover::after {
+  transform: scaleX(1);
+}
