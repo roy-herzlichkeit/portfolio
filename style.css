@@ -15,31 +15,31 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;    /* vertically center content */
-  align-items: center;        /* horizontally center content */
+  justify-content: center;    /* vertically centre content */
+  align-items: center;        /* horizontally centre content */
   text-align: center;
   font-family: 'Orbitron', sans-serif;
   background: linear-gradient(135deg, #ffeb3b 0%, #fff600 100%);
   color: #000;
   overflow-x: hidden;
-  padding: 1rem;              /* ensure some spacing on small screens */
+  padding: 1rem;
 }
 
 /* 3. Main headline style (responsive) */
 h1 {
+  max-width: 90vw;            /* prevent overflow on small screens */
   font-size: clamp(2rem, 10vw, 4rem);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   line-height: 1.1;
-  padding: 1rem 2rem;
+  padding: 1rem 2vw;
   margin: auto;
-  text-align: center;
 }
 
 /* 4. Footer */
 footer {
   margin-top: auto;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
   font-size: clamp(0.6rem, 2.5vw, 0.75rem);
   width: 100%;
 }
@@ -47,13 +47,13 @@ footer address {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  flex-wrap: wrap;            /* wrap links on narrow screens */
+  flex-wrap: wrap;
 }
 footer a {
   color: #000;
   text-decoration: none;
   position: relative;
-  padding: 0.1rem 0.3rem;
+  padding: 0.1rem 0.5vw;
   transition: color 0.2s ease, background 0.2s ease;
 }
 footer a::after {
@@ -76,12 +76,23 @@ footer a:hover::after {
   transform: scaleX(1);
 }
 
-/* 5. Optional media queries for extra small screens */
+/* 5. Media queries for small and medium screens */
+@media (max-width: 768px) {
+  h1 {
+    letter-spacing: 0.08em;
+    padding: 0.75rem 4vw;
+  }
+}
+
 @media (max-width: 480px) {
   body {
     padding: 0.5rem;
   }
   h1 {
-    padding: 0.5rem 1rem;
+    font-size: clamp(1.8rem, 12vw, 3rem);
+    padding: 0.5rem 3vw;
+  }
+  footer {
+    padding: 0.5rem;
   }
 }
