@@ -21,31 +21,33 @@ body {
   font-family: 'Orbitron', sans-serif;
   background: linear-gradient(135deg, #ffeb3b 0%, #fff600 100%);
   color: #000;
-  overflow: hidden;
+  overflow-x: hidden;
+  padding: 1rem;              /* ensure some spacing on small screens */
 }
 
-/* 3. Main headline style */
+/* 3. Main headline style (responsive) */
 h1 {
-  font-size: 4rem;
+  font-size: clamp(2rem, 10vw, 4rem);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   line-height: 1.1;
   padding: 1rem 2rem;
-  margin: auto;               /* ensure the h1 is centered */
-  text-align: center;         /* center text inside the h1 */
+  margin: auto;
+  text-align: center;
 }
 
 /* 4. Footer */
 footer {
-  margin-top: auto;           /* push footer to the bottom */
+  margin-top: auto;
   padding: 0.5rem 0;
-  font-size: 0.75rem;
+  font-size: clamp(0.6rem, 2.5vw, 0.75rem);
   width: 100%;
 }
 footer address {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  flex-wrap: wrap;            /* wrap links on narrow screens */
 }
 footer a {
   color: #000;
@@ -57,7 +59,9 @@ footer a {
 footer a::after {
   content: '';
   position: absolute;
-  left: 0; right: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 2px;
   background: #000;
   transform: scaleX(0);
@@ -70,4 +74,14 @@ footer a:hover {
 }
 footer a:hover::after {
   transform: scaleX(1);
+}
+
+/* 5. Optional media queries for extra small screens */
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+  h1 {
+    padding: 0.5rem 1rem;
+  }
 }
